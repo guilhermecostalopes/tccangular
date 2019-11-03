@@ -15,4 +15,4 @@ const moduleRoutes: Routes = [];
     providers: [],
     declarations: []
 })
-export class UsuarioRoutingModule { }
+export class GrupoRoutingModule { }
