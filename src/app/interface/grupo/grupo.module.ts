@@ -3,10 +3,12 @@ import { GrupoFormularioComponent } from './view/grupo/grupo-formulario/grupo-fo
 import { GrupoServiceService } from './service/grupo-service.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { GrupoRoutingModule } from './routes/grupo-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    GrupoRoutingModule
   ],
   providers: [GrupoServiceService],
   declarations: [GrupoFormularioComponent, GrupoPesquisarComponent]
