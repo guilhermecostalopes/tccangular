@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsuarioFormularioComponent } from './view/usuario/usuario-formulario/usuario-formulario.component';
 import { UsuarioPesquisarComponent } from './view/usuario/usuario-pesquisar/usuario-pesquisar.component';
+import { UsuarioRoutingModule } from './routes/usuario-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    UsuarioRoutingModule
   ],
   providers: [UsuarioServiceService],
   declarations: [UsuarioFormularioComponent, UsuarioPesquisarComponent]
