@@ -1,3 +1,28 @@
-<p>
-  grupo-formulario works!
-</p>
+<div mat-dialog-content>
+  <div class="content p-24">
+    <div
+      class="mb-24"
+      fxLayout="column"
+      fxLayoutAlign="start"
+      fxLayout.gt-md="row">
+      <form fxLayout="column">
+        <h3 class="first">Nome do grupo *</h3>
+        <input type="text" id="descricao" name="descricao" 
+          maxlength="50" pInputText />
+      </form>
+    </div>
+  </div>
+</div>
+<!--Isto é o componente app-botoes-tela-form, já criado-->
+<p-toolbar [style]="{'background':'#FFFCFC'}" id="botoesSalvar" render="true"> 
+  <h4>Campos com * são obrigatórios !</h4>
+  <p-button type="button" (click)="salvar()" icon="pi pi-save" 
+    pTooltip="Salvar" tooltipPosition="bottom" class="ui-button-raised">
+  </p-button>&nbsp;
+  <p-button type="button" (click)="limpar()" icon="pi pi-refresh" 
+    pTooltip="Limpar" tooltipPosition="bottom" *ngIf="!alteracao" class="ui-button-raised">
+  </p-button>&nbsp;
+  <p-button type="button" (click)="voltar()" icon="pi pi-angle-double-left" 
+    pTooltip="Voltar" tooltipPosition="bottom" class="ui-button-raised">
+  </p-button>
+</p-toolbar>

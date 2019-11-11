@@ -12,8 +12,7 @@ import { GrupoModule } from './interface/grupo/grupo.module';
 import localeBr from '@angular/common/locales/pt';
 import { PrincipalComponent } from './interface/principal/principal.component';
 
-import { SidebarModule } from 'primeng/sidebar';
-import { FieldsetModule } from 'primeng/primeng';
+import { PrimeNgModule } from './prime-ng/prime-ng.module';
 
 registerLocaleData(localeBr);
 
@@ -28,12 +27,7 @@ registerLocaleData(localeBr);
     AppRoutingModule,
     GrupoModule,
     UsuarioModule,
-    SidebarModule,
-    FieldsetModule
-  ],
-  exports: [
-    SidebarModule,
-    FieldsetModule
+    PrimeNgModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

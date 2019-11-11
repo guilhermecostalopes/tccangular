@@ -12,4 +12,15 @@ export class GrupoFormularioComponent implements OnInit {
   ngOnInit() {
   }
 
+  public salvar() {
+
+  }
+
+  public limpar() {
+
+  }
+
+  public voltar() {
+
+  }
 }
