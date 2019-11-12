@@ -71,7 +71,7 @@ export class GHComponente implements OnInit {
       }
       this.items = [
         {label: 'Dashboard', separator: true, routerLink: ['/']},
-        {label: 'Pesquisar ' + this.label, separator: true, routerLink: ['/' + this.pagina]},
+        {label: 'Pesquisar ' + this.label, separator: true, routerLink: ['/' + this.pagina + '/pesquisar']},
         {label: this.tituloMenu + ' ' + this.label}
       ];
     }
