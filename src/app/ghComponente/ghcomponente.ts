@@ -93,14 +93,14 @@ export class GHComponente implements OnInit {
     this.servico.pesquisar(this.modelo).subscribe(
       (data: any) => {
         this.msgs = [];
-        this.entidadePesquisa = data.lista;
+        this.entidadePesquisa = data;
         if (mostrarMensagem) {
           this.mensagemTela(data.tipoMensagem.tipo, data.tipoMensagem.sumario, data.tipoMensagem.mensagem);
         }
         if (this.entidadePesquisa.length > 0) {
           this.mostrarPesquisa = true;
         }
-      }, err => {
+      }, (err: any) => {
         this.mensagemTela('error', 'Mensagem de erro', 'Erro no servidor !');
       }
     );
@@ -154,73 +154,6 @@ export class GHComponente implements OnInit {
       });
       console.log('Deletar ' + this.label);
     }
-  }
-
-  public bloquear() {
-    this.antesAlterarDeletar(this.selecaoBusca);
-    if (!this.antesDeletarAlterar) {
-      this.confirmationService.confirm({
-        message: 'Deseja bloquear este registro ?',
-        accept: () => {
-          this.servico.bloquear(this.selecaoBusca).subscribe(
-            (data: any) => {
-              this.mensagemTela(data.tipoMensagem.tipo, data.tipoMensagem.sumario, data.tipoMensagem.mensagem);
-              this.redirecionamentoAposMensagem(data, true);
-              console.log('Bloquear: ' + this.selecaoBusca);
-            }
-          );
-        }
-      });
-      console.log('Bloquear ' + this.label);
-    }
-  }
-
-  public desbloquear() {
-    this.antesAlterarDeletar(this.selecaoBusca);
-    if (!this.antesDeletarAlterar) {
-      this.confirmationService.confirm({
-        message: 'Deseja desbloquear este registro ?',
-        accept: () => {
-          this.servico.desbloquear(this.selecaoBusca).subscribe(
-            (data: any) => {
-              this.mensagemTela(data.tipoMensagem.tipo, data.tipoMensagem.sumario, data.tipoMensagem.mensagem);
-              this.redirecionamentoAposMensagem(data, true);
-              console.log('Desbloquear: ' + this.selecaoBusca);
-            }
-          );
-        }
-      });
-      console.log('Desbloquear ' + this.label);
-    }
-  }
-
-  public inativo() {
-    this.antesAlterarDeletar(this.selecaoBusca);
-    if (!this.antesDeletarAlterar) {
-      this.confirmationService.confirm({
-        message: 'Deseja inativar este registro ?',
-        accept: () => {
-          this.servico.inativo(this.selecaoBusca).subscribe(
-            (data: any) => {
-              this.mensagemTela(data.tipoMensagem.tipo, data.tipoMensagem.sumario, data.tipoMensagem.mensagem);
-              this.redirecionamentoAposMensagem(data, true);
-              console.log('Inativar: ' + this.selecaoBusca);
-            }
-          );
-        }
-      });
-      console.log('Inativar ' + this.label);
-    }
-  }
-
-  public imprimirTodos() {
-    this.servico.imprimirTodos().subscribe(
-      (data: any) => {
-        this.imprmir = data.lista;
-      }, (err: any) => {
-
-      }
-    );
   }
 
   protected antesAlterarDeletar(selecao: any) {

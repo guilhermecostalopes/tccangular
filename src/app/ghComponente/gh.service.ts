@@ -26,7 +26,7 @@ export class CrudService<T, ID> implements CrudOperations<T, ID> {
   }
 
   pesquisar(p: T) {
-    return this.httpClient.post(BASE_SISTEMA + this.base + '/pesquisar', p);
+    return this.httpClient.post(BASE_SISTEMA + this.base + '/listar', p);
   }
 
   excluir(id: ID) {

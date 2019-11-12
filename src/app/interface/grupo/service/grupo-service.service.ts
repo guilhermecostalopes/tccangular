@@ -11,6 +11,6 @@ export class GrupoServiceService extends CrudService<Grupo, number> {
   constructor(
     httpClient: HttpClient
   ) {
-    super(httpClient, 'grupo');
+    super(httpClient, 'grupos');
   }
 }
