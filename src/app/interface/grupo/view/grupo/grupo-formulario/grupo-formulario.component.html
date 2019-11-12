@@ -1,18 +1,23 @@
-<div mat-dialog-content>
-  <div class="content p-24">
-    <div
-      class="mb-24"
-      fxLayout="column"
-      fxLayoutAlign="start"
-      fxLayout.gt-md="row">
-      <form fxLayout="column">
-        <h3 class="first">Nome do grupo *</h3>
-        <input type="text" id="descricao" name="descricao" 
-          maxlength="50" pInputText />
-      </form>
+<p-confirmDialog></p-confirmDialog>
+<p-toast position="bottom-center"></p-toast>
+<p-messages [(value)]="msgs"></p-messages>
+<p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+<input type="hidden" name="id" [(ngModel)]="modelo.id">
+
+<p-toolbar [style]="{'background':'#007ad9'}" id="codigoLabel">
+  <font style="color: #f0f8ff">{{tituloMenu}} {{label}}</font>
+</p-toolbar>
+
+<p-toolbar [style]="{'background':'#FFFCFC'}" id="codigo">
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-6 ui-lg-4">
+      <label for="descricao" class="first">Descrição *</label>
+      <input type="text" id="descricao" name="descricao" 
+        [(ngModel)]="modelo.descricao" maxlength="50" pInputText />
     </div>
   </div>
-</div>
+</p-toolbar>
 <!--Isto é o componente app-botoes-tela-form, já criado-->
 <p-toolbar [style]="{'background':'#FFFCFC'}" id="botoesSalvar" render="true"> 
   <h4>Campos com * são obrigatórios !</h4>
