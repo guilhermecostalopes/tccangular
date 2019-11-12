@@ -1,3 +1,57 @@
-<p>
-  usuario-formulario works!
-</p>
+<p-confirmDialog></p-confirmDialog>
+<p-toast position="bottom-center"></p-toast>
+<p-messages [(value)]="msgs"></p-messages>
+<p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+<input type="hidden" name="id" [(ngModel)]="modelo.id">
+
+<p-toolbar [style]="{'background':'#007ad9'}" id="codigoLabel">
+  <font style="color: #f0f8ff">{{tituloMenu}} {{label}}</font>
+</p-toolbar>
+
+<p-toolbar [style]="{'background':'#FFFCFC'}" id="codigo">
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-6 ui-lg-4">
+      <label for="nome" class="first">Nome *</label>
+      <input type="text" id="nome" name="Nome" 
+        [(ngModel)]="modelo.nome" maxlength="50" pInputText />
+    </div>
+  </div>
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-6 ui-lg-4">
+      <label for="sobrenome" class="first">Sobrenome *</label>
+      <input type="text" id="sobrenome" name="sobrenome" 
+        [(ngModel)]="modelo.sobrenome" maxlength="50" pInputText />
+    </div>
+  </div>
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-6 ui-lg-4">
+      <label for="grupo" class="first">Grupo *</label>
+      <p-autoComplete [(ngModel)]="modelo.grupo" name="grupo" id="grupo" 
+        [suggestions]="grupos" (completeMethod)="filtrarGrupo($event)" 
+        field="grupo" [size]="30" 
+        tooltipPosition="right" [minLength]="1">
+     </p-autoComplete>
+    </div>
+  </div>
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-6 ui-lg-4">
+      <label for="dataAniversario" class="first">Data de aniversário *</label>
+      <p-calendar [(ngModel)]="modelo.dataAniversario" dateFormat="dd/mm/yy"
+      [showIcon]="true"></p-calendar>
+    </div>
+  </div>
+</p-toolbar>
+<!--Isto é o componente app-botoes-tela-form, já criado-->
+<p-toolbar [style]="{'background':'#FFFCFC'}" id="botoesSalvar" render="true"> 
+  <h4>Campos com * são obrigatórios !</h4>
+  <p-button type="button" (click)="salvar()" icon="pi pi-save" 
+    pTooltip="Salvar" tooltipPosition="bottom" class="ui-button-raised">
+  </p-button>&nbsp;
+  <p-button type="button" (click)="limpar()" icon="pi pi-refresh" 
+    pTooltip="Limpar" tooltipPosition="bottom" *ngIf="!alteracao" class="ui-button-raised">
+  </p-button>&nbsp;
+  <p-button type="button" (click)="voltar()" icon="pi pi-angle-double-left" 
+    pTooltip="Voltar" tooltipPosition="bottom" class="ui-button-raised">
+  </p-button>
+</p-toolbar>

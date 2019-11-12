@@ -114,13 +114,13 @@ export class GHComponente implements OnInit {
   public limpar() {
     console.log('Limpar ' + this.modelo);
     this.modelo.id = null;
-    this.modelo.datacadastro = null;
+    this.modelo.dataCadastro = null;
     if (this.modelo instanceof Grupo) {
       this.modelo.nome = null;
     } else if (this.modelo instanceof Usuario) {
       this.modelo.nome = null;
       this.modelo.sobrenome = null;
-      this.modelo.dataaniversario = null;
+      this.modelo.dataAniversario = null;
     }
     this.entidadePesquisa = [];
     this.mostrarPesquisa = false;

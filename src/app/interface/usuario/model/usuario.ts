@@ -5,5 +5,5 @@ export class  Usuario extends SuperGrupo {
     grupo: Grupo;
     nome: string;
     sobrenome: string;
-    dataaniversario: string;
+    dataAniversario: string;
 }
