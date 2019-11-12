@@ -1,7 +1,7 @@
 import { UsuarioFormularioComponent } from './../view/usuario/usuario-formulario/usuario-formulario.component';
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 import { UsuarioPesquisarComponent } from '../view/usuario/usuario-pesquisar/usuario-pesquisar.component';
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 
 const moduleRoutes: Routes = [
   {

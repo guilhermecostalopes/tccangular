@@ -1,18 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, LOCALE_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
+import localeBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { registerLocaleData } from '@angular/common';
 
 import { UsuarioModule } from './interface/usuario/usuario.module';
 import { GrupoModule } from './interface/grupo/grupo.module';
 
-import localeBr from '@angular/common/locales/pt';
 import { PrincipalComponent } from './interface/principal/principal.component';
 
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
 
 registerLocaleData(localeBr);
 

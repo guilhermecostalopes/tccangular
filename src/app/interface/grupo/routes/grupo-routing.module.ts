@@ -1,7 +1,7 @@
 import { GrupoPesquisarComponent } from './../view/grupo/grupo-pesquisar/grupo-pesquisar.component';
 import { GrupoFormularioComponent } from './../view/grupo/grupo-formulario/grupo-formulario.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 const moduleRoutes: Routes = [
   {

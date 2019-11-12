@@ -1,9 +1,7 @@
 import { OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-
-import { MenuItem , MessageService} from 'primeng/api';
-import { ConfirmationService } from 'primeng/primeng';
 import { Message } from '../toast/message';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ConfirmationService, MessageService, MenuItem } from 'primeng/api';
 
 export class GHComponente implements OnInit {
 

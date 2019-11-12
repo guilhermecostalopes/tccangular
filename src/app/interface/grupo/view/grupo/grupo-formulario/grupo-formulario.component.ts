@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { GHComponente } from 'src/app/ghComponente/ghcomponente';
 import { GrupoServiceService } from '../../../service/grupo-service.service';
 
-import { Router, ActivatedRoute } from '@angular/router';
-import { ConfirmationService, MessageService } from 'primeng/api';
 import { Grupo } from '../../../model/grupo';
 
 @Component({
