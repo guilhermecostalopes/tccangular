@@ -2,6 +2,8 @@ import { OnInit } from '@angular/core';
 import { Message } from '../toast/message';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ConfirmationService, MessageService, MenuItem } from 'primeng/api';
+import { Grupo } from '../interface/grupo/model/grupo';
+import { Usuario } from '../interface/usuario/model/usuario';
 
 export class GHComponente implements OnInit {
 
@@ -45,14 +47,16 @@ export class GHComponente implements OnInit {
     this.antesDeletarAlterar = false;
     this.breadcrumb();
     const rota = this.routaAtual.snapshot.url[1];
-    if (rota !== undefined && rota.path !== 'novo') {
+    if (rota !== undefined && rota.path !== 'novo'
+      && rota.path !== 'pesquisar') {
       this.preencherAlteracao();
     }
   }
 
   protected breadcrumb() {
     this.alteracao = false;
-    if (this.routaAtual.snapshot.url[1] === undefined) {
+    if (this.routaAtual.snapshot.url[1] !== undefined
+      && this.routaAtual.snapshot.url[1].path === 'pesquisar') {
       this.items = [
         {label: 'Dashboard', separator: true, routerLink: ['/']},
         {label: this.label, styleClass : 'ui-menuitem-text'}
@@ -81,7 +85,7 @@ export class GHComponente implements OnInit {
 
   public voltar() {
     console.log('Voltar ' + this.label);
-    this.router.navigate(['/' + this.pagina]);
+    this.router.navigate(['/' + this.pagina + '/pesquisar']);
   }
 
   changePage(event: any) {
@@ -109,6 +113,15 @@ export class GHComponente implements OnInit {
 
   public limpar() {
     console.log('Limpar ' + this.modelo);
+    this.modelo.id = null;
+    this.modelo.datacadastro = null;
+    if (this.modelo instanceof Grupo) {
+      this.modelo.nome = null;
+    } else if (this.modelo instanceof Usuario) {
+      this.modelo.nome = null;
+      this.modelo.sobrenome = null;
+      this.modelo.dataaniversario = null;
+    }
     this.entidadePesquisa = [];
     this.mostrarPesquisa = false;
     console.log('Limpar depois: ' + this.modelo);

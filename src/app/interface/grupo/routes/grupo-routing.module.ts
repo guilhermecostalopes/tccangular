@@ -10,7 +10,7 @@ const moduleRoutes: Routes = [
   }
   ,
   {
-    path: 'grupo/incluir',
+    path: 'grupo/novo',
     component: GrupoFormularioComponent
   }
   ,
