@@ -10,12 +10,12 @@ const moduleRoutes: Routes = [
   }
   ,
   {
-    path: 'usuario/incluir',
+    path: 'usuario/novo',
     component: UsuarioFormularioComponent
   }
   ,
   {
-    path: 'usuario/:codigo/alterar',
+    path: 'usuario/alterar/:codigo',
     component: UsuarioFormularioComponent
   }
 ];

@@ -15,7 +15,7 @@ const moduleRoutes: Routes = [
   }
   ,
   {
-    path: 'grupo/:codigo/alterar',
+    path: 'grupo/alterar/:codigo',
     component: GrupoFormularioComponent
   }
 ];
