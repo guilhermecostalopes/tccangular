@@ -41,7 +41,7 @@ export class UsuarioFormularioComponent extends GHComponente {
     // tslint:disable-next-line:new-parens
     const grupo = new Grupo;
     grupo.nome = event.query;
-    this.grupoService.pesquisar(grupo).subscribe(
+    this.grupoService.listarPorNome(grupo).subscribe(
       (data: any) => {
         this.grupos = data.lista;
       }, err => {

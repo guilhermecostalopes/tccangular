@@ -10,7 +10,7 @@ export class CrudService<T, ID> implements CrudOperations<T, ID> {
   ) {}
 
   salvar(t: T) {
-    return this.httpClient.post(BASE_SISTEMA + this.base + '/salvar', t);
+    return this.httpClient.post(BASE_SISTEMA + this.base + '/inserir', t);
   }
 
   alterar(t: T) {

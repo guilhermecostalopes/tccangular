@@ -15,7 +15,7 @@ const moduleRoutes: Routes = [
   }
   ,
   {
-    path: 'usuario/alterar/:codigo',
+    path: 'usuario/:codigo',
     component: UsuarioFormularioComponent
   }
 ];
