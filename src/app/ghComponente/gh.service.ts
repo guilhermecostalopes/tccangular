@@ -13,16 +13,8 @@ export class CrudService<T, ID> implements CrudOperations<T, ID> {
     return this.httpClient.post(BASE_SISTEMA + this.base + '/salvar', t);
   }
 
-  bloquear(t: T) {
-    return this.httpClient.post(BASE_SISTEMA + this.base + '/bloquear', t);
-  }
-
-  desbloquear(t: T) {
-    return this.httpClient.post(BASE_SISTEMA + this.base + '/desbloquear', t);
-  }
-
-  inativo(t: T) {
-    return this.httpClient.post(BASE_SISTEMA + this.base + '/inativo', t);
+  alterar(t: T) {
+    return this.httpClient.put(BASE_SISTEMA + this.base + '/alterar', t);
   }
 
   pesquisar(p: T) {
@@ -35,17 +27,5 @@ export class CrudService<T, ID> implements CrudOperations<T, ID> {
 
   buscarPorId(id: ID) {
     return this.httpClient.get(BASE_SISTEMA + this.base + '/alterar/' + id);
-  }
-
-  buscarTodosStatusDoRegistro() {
-    return this.httpClient.post(BASE_SISTEMA + this.base + '/todosStatusDoRegistro', null);
-  }
-
-  buscarTodosSimNao() {
-    return this.httpClient.post(BASE_SISTEMA + this.base + '/simNao', null);
-  }
-
-  imprimirTodos() {
-    return this.httpClient.get(BASE_SISTEMA + this.base + '/imprimirTodos');
   }
 }

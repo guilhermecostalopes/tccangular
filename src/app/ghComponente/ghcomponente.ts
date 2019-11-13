@@ -97,7 +97,7 @@ export class GHComponente implements OnInit {
     this.servico.pesquisar(this.modelo).subscribe(
       (data: any) => {
         this.msgs = [];
-        this.entidadePesquisa = data;
+        this.entidadePesquisa = data.lista;
         if (mostrarMensagem) {
           this.mensagemTela(data.tipoMensagem.tipo, data.tipoMensagem.sumario, data.tipoMensagem.mensagem);
         }
@@ -128,16 +128,31 @@ export class GHComponente implements OnInit {
   }
 
   public salvar() {
-    this.servico.salvar(this.modelo).subscribe(
-      (data: any) => {
-        this.msgs = [];
-        this.msgs.push({severity: data.tipoMensagem.tipo, summary: data.tipoMensagem.sumario, detail: data.tipoMensagem.mensagem});
-        this.messageService.add({severity: data.tipoMensagem.tipo, summary: data.tipoMensagem.sumario, detail: data.tipoMensagem.mensagem});
-        this.redirecionamentoAposMensagem(data, false);
-      }, (err: any) => {
-        this.mensagemTela('error', 'Mensagem de erro', 'Erro no servidor !');
-      }
-    );
+    if (this.modelo.id === undefined) {
+      this.servico.salvar(this.modelo).subscribe(
+        (data: any) => {
+          this.msgs = [];
+          this.msgs.push({severity: data.tipoMensagem.tipo, summary: data.tipoMensagem.sumario, detail: data.tipoMensagem.mensagem});
+          // tslint:disable-next-line:max-line-length
+          this.messageService.add({severity: data.tipoMensagem.tipo, summary: data.tipoMensagem.sumario, detail: data.tipoMensagem.mensagem});
+          this.redirecionamentoAposMensagem(data, false);
+        }, (err: any) => {
+          this.mensagemTela('error', 'Mensagem de erro', 'Erro no servidor !');
+        }
+      );
+    } else {
+      this.servico.alterar(this.modelo).subscribe(
+        (data: any) => {
+          this.msgs = [];
+          this.msgs.push({severity: data.tipoMensagem.tipo, summary: data.tipoMensagem.sumario, detail: data.tipoMensagem.mensagem});
+          // tslint:disable-next-line:max-line-length
+          this.messageService.add({severity: data.tipoMensagem.tipo, summary: data.tipoMensagem.sumario, detail: data.tipoMensagem.mensagem});
+          this.redirecionamentoAposMensagem(data, false);
+        }, (err: any) => {
+          this.mensagemTela('error', 'Mensagem de erro', 'Erro no servidor !');
+        }
+      );
+    }
     console.log('salvar: ' + this.modelo);
   }
 
@@ -188,7 +203,7 @@ export class GHComponente implements OnInit {
   protected preencherAlteracao() {
     this.servico.buscarPorId(this.id).subscribe(
       (data: any) => {
-        this.modelo = data.lista[0];
+        this.modelo = data;
       }, (err: any) => {
 
       }
@@ -197,11 +212,10 @@ export class GHComponente implements OnInit {
 
   protected redirecionamentoAposMensagem(data: any, mesmaPagina: boolean) {
     if (data.tipoMensagem.tipo !== 'error') {
-      setTimeout(
-        () => {
-          mesmaPagina ? this.pesquisar(false) : this.router.navigate([this.pagina]);
-        },
-      );
+      setTimeout(() => {
+          mesmaPagina ? this.pesquisar(false) :
+          this.router.navigate([this.pagina + '/pesquisar']);
+        }, 3000);
     }
   }
 }
