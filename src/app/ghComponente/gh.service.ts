@@ -26,6 +26,6 @@ export class CrudService<T, ID> implements CrudOperations<T, ID> {
   }
 
   buscarPorId(id: ID) {
-    return this.httpClient.get(BASE_SISTEMA + this.base + '/alterar/' + id);
+    return this.httpClient.get(BASE_SISTEMA + this.base + '/' + id);
   }
 }

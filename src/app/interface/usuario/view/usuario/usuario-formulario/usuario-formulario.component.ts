@@ -12,7 +12,7 @@ import { GrupoServiceService } from 'src/app/interface/grupo/service/grupo-servi
   templateUrl: './usuario-formulario.component.html',
   styleUrls: ['./usuario-formulario.component.css']
 })
-export class UsuarioFormularioComponent extends GHComponente {
+export class UsuarioFormularioComponent extends GHComponente implements OnInit {
 
   public grupos: Grupo[];
 
@@ -37,11 +37,15 @@ export class UsuarioFormularioComponent extends GHComponente {
     );
   }
 
-  public filtrarGrupo(event: any) {
+  ngOnInit() {
+    super.ngOnInit();
+    this.todosGrupos();
+  }
+
+  public todosGrupos() {
     // tslint:disable-next-line:new-parens
     const grupo = new Grupo;
-    grupo.nome = event.query;
-    this.grupoService.listarPorNome(grupo).subscribe(
+    this.grupoService.pesquisar(grupo).subscribe(
       (data: any) => {
         this.grupos = data.lista;
       }, err => {

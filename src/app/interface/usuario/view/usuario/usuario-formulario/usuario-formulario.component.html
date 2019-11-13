@@ -27,11 +27,9 @@
   <div class="ui-g ui-fluid">
     <div class="ui-g-12 ui-md-6 ui-lg-4">
       <label for="grupo" class="first">Grupo *</label>
-      <p-autoComplete [(ngModel)]="modelo.grupo" name="grupo" id="grupo" 
-        [suggestions]="grupos" (completeMethod)="filtrarGrupo($event)" 
-        field="grupo" [size]="30" 
-        tooltipPosition="right" [minLength]="1">
-     </p-autoComplete>
+      <p-dropdown [options]="grupos" [(ngModel)]="modelo.grupo" 
+        placeholder="Selecione o grupo" optionLabel="nome" [showClear]="true">
+      </p-dropdown>
     </div>
   </div>
   <div class="ui-g ui-fluid">
