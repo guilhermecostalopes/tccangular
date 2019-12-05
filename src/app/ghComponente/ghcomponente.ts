@@ -137,7 +137,9 @@ export class GHComponente implements OnInit {
           this.messageService.add({severity: data.tipoMensagem.tipo, summary: data.tipoMensagem.sumario, detail: data.tipoMensagem.mensagem});
           this.redirecionamentoAposMensagem(data, false);
         }, (err: any) => {
-          this.mensagemTela('error', 'Mensagem de erro', 'Erro no servidor !');
+          this.mensagemTela(err.error.tipoMensagem.tipo,
+            err.error.tipoMensagem.sumario,
+            err.error.tipoMensagem.mensagem);
         }
       );
     } else {
@@ -149,7 +151,9 @@ export class GHComponente implements OnInit {
           this.messageService.add({severity: data.tipoMensagem.tipo, summary: data.tipoMensagem.sumario, detail: data.tipoMensagem.mensagem});
           this.redirecionamentoAposMensagem(data, false);
         }, (err: any) => {
-          this.mensagemTela('error', 'Mensagem de erro', 'Erro no servidor !');
+          this.mensagemTela(err.error.tipoMensagem.tipo,
+            err.error.tipoMensagem.sumario,
+            err.error.tipoMensagem.mensagem);
         }
       );
     }
